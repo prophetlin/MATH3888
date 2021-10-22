@@ -24,11 +24,12 @@ with open("essential_yeast.csv") as f:
 print('number of nodes of G0:',G0.number_of_nodes())
 
 # delete those edges with a combined score of <= threshold_score (small confidence)
-threshold_score = 950
-for edge in G0.edges: 
-    weight = list(G0.get_edge_data(edge[0],edge[1]).values())
-    if(weight[0] <= threshold_score):
-        G0.remove_edge(edge[0],edge[1])
+
+#threshold_score = 950
+#for edge in G0.edges: 
+#    weight = list(G0.get_edge_data(edge[0],edge[1]).values())
+#    if(weight[0] <= threshold_score):
+#        G0.remove_edge(edge[0],edge[1])
 
 partition = community_louvain.best_partition(G0)
 number_of_communities = max(list(partition.values()))+1
